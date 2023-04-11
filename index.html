@@ -101,7 +101,6 @@
             "packageId": 1
           }
         ])
-        alert("Message sent")
       }
     }
 
@@ -143,16 +142,13 @@
       liff.ready.then(() => {
         document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         if (liff.isLoggedIn()) {
-          getEnvironment()
-          getUserProfile()
-          getContext()
-          getFriendship()
-          createUniversalLink()
+          shareMsg()
+          sendMsg()
         } else {
           liff.login()
         }
       })
-      await liff.init({ liffId: "1660742570-nkMBBA6p" })
+      await liff.init({ liffId: "1660862354-Bl83ao6p" })
     }
     main()
   </script>
