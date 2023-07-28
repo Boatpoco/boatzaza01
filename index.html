@@ -8,13 +8,14 @@
 <body>
   <p id="language"><b>Language:</b> </p>
   <p id="accessToken"><b>AccessToken:</b> </p>
+  <p id="isInClient"><b>isInClient:</b> </p>
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
   <p id="decodedIDToken"><b>email:</b> </p>
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
-  <p id="isInClient"><b>isInClient:</b> </p>
+
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
@@ -30,15 +31,6 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
-    function createUniversalLink() {
-      const link1 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink1").append(link1)
-
-      liff.permanentLink.setExtraQueryParam('param=9')
-      const link2 = liff.permanentLink.createUrl()
-      document.getElementById("universalLink2").append(link2)
-    }
-
     async function shareMsg() {
       await liff.shareTargetPicker([
         {
