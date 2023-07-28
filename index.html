@@ -83,32 +83,32 @@
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     async function shareMsg() {
-      liff
+  // อ่านข้อมูลที่อยู่ใน flexjson textarea และ alttext input field แล้วแปลงเป็น JSON object
+  const alttext = document.getElementById("alttext").value;
+  const flexjson = JSON.parse(document.getElementById("flexjson").value);
+  liff
   .shareTargetPicker(
     [
       {
-        type: "text",
-        text: "Hello, World!",
-      },
-    ],
-    {
-      isMultiple: true,
-    }
+        'type': 'flex',
+        'altText': alttext,
+        'contents': flexjson
+      }
+    ]
   )
   .then(function (res) {
     if (res) {
-      // succeeded in sending a message through TargetPicker
       console.log(`[${res.status}] Message sent!`);
     } else {
-      // sending message canceled
       console.log("TargetPicker was closed!");
     }
   })
   .catch(function (error) {
-    // something went wrong before sending a message
     console.log("something wrong happen");
   });
-    }
+}
+
+
 
     function logOut() {
       liff.logout()
