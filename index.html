@@ -71,15 +71,7 @@
     <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
     <button id="btnLogOut" onclick="logOut()">Log Out</button>
     <button id="btnClose" onclick="closed()">Close</button>
-        </div>
-    </div>
-
-    <button id="btnMsg" onclick="sendMsg()">Send Message</button>
-    <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
-    <button onclick="openWindow()">Open Window</button>
-    <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
-    <button id="btnLogOut" onclick="logOut()">Log Out</button>
-    <button id="btnClose" onclick="closed()">Close</button>
+      
   <script>
         document.getElementById("btnClip").addEventListener("click", async function() {
             const text = await navigator.clipboard.readText();
@@ -98,6 +90,7 @@
   const alttext = document.getElementById("alttext").value;
   const flexjsonInput = document.getElementById("flexjson").value;
   const flexjson = JSON.parse(flexjsonInput);
+  const message = document.getElementById("message").value;
 
   // ตรวจสอบว่า alttext หรือ flexjson ว่างเปล่าหรือไม่
   if (!alttext.trim() || !flexjsonInput.trim()) {
@@ -105,20 +98,23 @@
     return;
   }
 
+  const contents = [
+    {
+      'type': 'flex',
+      'altText': alttext,
+      'contents': flexjson
+    }
+  ];
+
+  if (message.trim()) {
+    contents.unshift({
+      type: "text",
+      text: message,
+    });
+  }
+
   liff
-  .shareTargetPicker(
-    [
-      {
-        type: "text",
-        text: "Hello, World!",
-      },
-      {
-        'type': 'flex',
-        'altText': alttext,
-        'contents': flexjson
-      }
-    ]
-  )
+  .shareTargetPicker(contents)
   .then(function (res) {
     if (res) {
       console.log(`[${res.status}] Message sent!`);
@@ -130,6 +126,7 @@
     console.log("something wrong happen");
   });
 }
+
     
     function logOut() {
       liff.logout()
