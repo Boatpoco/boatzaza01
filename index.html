@@ -24,20 +24,20 @@
             margin-right: 10px;
         }
         #flexjson {
-            width: 100%;
+            width: 40%;
             min-height: 200px; /* You can adjust this value as per your needs */
             resize: vertical; /* This will allow user to resize the textbox vertically */
         }
     </style>
 </head>
 <body>
-   <h2>Your Information</h2>
+  <h2>Your Information</h2>
 
     <form action="#" method="post" name="flexJson">
         <label for="alttext">alttext:</label><br>
         <input type="text" id="alttext" name="alttext"><br>
         <label for="flexjson">flexjson:</label><br>
-        <input type="text" id="flexjson" name="flexjson">
+        <textarea id="flexjson" name="flexjson"></textarea>
         <button type="button" id="btnClip">Paste from Clipboard</button>
     </form>
     
@@ -49,14 +49,17 @@
         <p id="accessToken"><b>AccessToken:</b> </p>
     </div>
 
-    <img id="pictureUrl">
-    <p id="userId"><b>userId:</b> </p>
-    <p id="displayName"><b>displayName:</b> </p>
-    <p id="statusMessage"><b>statusMessage:</b> </p>
-    <p id="decodedIDToken"><b>email:</b> </p>
-    <p id="friendship"><b>isFriendship:</b> </p>
-    <p id="scanCode"><b>Code:</b> </p>
-    <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
+    <div class="user-info">
+        <img id="pictureUrl">
+        <div class="user-details">
+            <p id="displayName"><b>displayName:</b> </p>
+            <p id="statusMessage"><b>statusMessage:</b> </p>
+            <p id="decodedIDToken"><b>email:</b> </p>
+            <p id="friendship"><b>isFriendship:</b> </p>
+            <p id="scanCode"><b>Code:</b> </p>
+            <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
+        </div>
+    </div>
 
     <button id="btnMsg" onclick="sendMsg()">Send Message</button>
     <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
