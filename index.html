@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>My LIFF App</title>
+  <title>ควยไรละเย็ดแม่</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     body {
@@ -16,19 +16,18 @@
     form, p {
         margin-bottom: 15px;
     }
-    input[type="text"] {
-        width: 70%;
+    input[type="text"], #flexjson, #message {
+        width: 50%;
         padding: 10px;
     }
     button {
         margin-right: 10px;
     }
     #flexjson {
-       width: 50%;
-       min-height: 100px;
-       resize: vertical;
-       vertical-align: top;
-       text-align: left;
+        min-height: 100px;
+        resize: vertical;
+        vertical-align: top;
+        text-align: left;
     }
 </style>
 </head>
@@ -39,11 +38,11 @@
         <label for="alttext">alttext:</label><br>
         <input type="text" id="alttext" name="alttext"><br>
         <label for="message">Message:</label><br>
-        <input type="text" id="message" name="message"><br>
+        <textarea id="message" name="message"></textarea><br>
+        <label for="flexjson">flexjson:</label><br>
+        <textarea id="flexjson" name="flexjson"></textarea><br>
         <label for="imageUrl">Image URL:</label><br>
         <input type="text" id="imageUrl" name="imageUrl"><br>
-        <label for="flexjson">flexjson:</label><br>
-        <textarea id="flexjson" name="flexjson"></textarea>
         <button type="button" id="btnClip">Paste from Clipboard</button>
     </form>
     
@@ -63,6 +62,15 @@
             <p id="statusMessage"><b>statusMessage:</b> </p>
             <p id="decodedIDToken"><b>email:</b> </p>
             <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
+        </div>
+    </div>
+
+    <button id="btnMsg" onclick="sendMsg()">Send Message</button>
+    <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
+    <button onclick="openWindow()">Open Window</button>
+    <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
+    <button id="btnLogOut" onclick="logOut()">Log Out</button>
+    <button id="btnClose" onclick="closed()">Close</button>
         </div>
     </div>
 
