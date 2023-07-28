@@ -90,6 +90,7 @@
   const alttext = document.getElementById("alttext").value;
   const flexjsonInput = document.getElementById("flexjson").value;
   const message = document.getElementById("message").value;
+  const imageUrl = document.getElementById("imageurl").value;
 
   const contents = [];
 
@@ -109,8 +110,16 @@
     });
   }
 
+  if (imageUrl.trim()) {
+    contents.push({
+      type: "image",
+      originalContentUrl: imageUrl,
+      previewImageUrl: imageUrl
+    });
+  }
+
   if (contents.length === 0) {
-    alert("alttext หรือ flexjson หรือ message ไม่สามารถว่างเปล่าได้");
+    alert("alttext หรือ flexjson หรือ message หรือ image url ไม่สามารถว่างเปล่าได้");
     return;
   }
 
