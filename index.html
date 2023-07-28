@@ -44,12 +44,31 @@
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     async function shareMsg() {
-      await liff.shareTargetPicker([
-        {
-          type: "text",
-          text: "This message was sent by ShareTargetPicker"
-        }
-      ])
+      liff
+  .shareTargetPicker(
+    [
+      {
+        type: "text",
+        text: "Hello, World!",
+      },
+    ],
+    {
+      isMultiple: true,
+    }
+  )
+  .then(function (res) {
+    if (res) {
+      // succeeded in sending a message through TargetPicker
+      console.log(`[${res.status}] Message sent!`);
+    } else {
+      // sending message canceled
+      console.log("TargetPicker was closed!");
+    }
+  })
+  .catch(function (error) {
+    // something went wrong before sending a message
+    console.log("something wrong happen");
+  });
     }
 
     function logOut() {
