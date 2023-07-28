@@ -4,33 +4,33 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF App</title>
   <link rel="stylesheet" href="css/style.css">
- <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .info-row {
-            display: flex;
-            gap: 20px;
-            align-items: baseline;
-        }
-        form, p {
-            margin-bottom: 15px;
-        }
-        input[type="text"] {
-            width: 70%;
-            padding: 10px;
-        }
-        button {
-            margin-right: 10px;
-        }
-        #flexjson {
-           width: 50%;
-        min-height: 100px;
-        resize: vertical;
-        vertical-align: top;
-        text-align: left;
-        }
-    </style>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .info-row {
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+    }
+    form, p {
+        margin-bottom: 15px;
+    }
+    input[type="text"] {
+        width: 70%;
+        padding: 10px;
+    }
+    button {
+        margin-right: 10px;
+    }
+    #flexjson {
+       width: 50%;
+       min-height: 100px;
+       resize: vertical;
+       vertical-align: top;
+       text-align: left;
+    }
+</style>
 </head>
 <body>
  <h2>Your Information</h2>
@@ -38,6 +38,10 @@
     <form action="#" method="post" name="flexJson">
         <label for="alttext">alttext:</label><br>
         <input type="text" id="alttext" name="alttext"><br>
+        <label for="message">Message:</label><br>
+        <input type="text" id="message" name="message"><br>
+        <label for="imageUrl">Image URL:</label><br>
+        <input type="text" id="imageUrl" name="imageUrl"><br>
         <label for="flexjson">flexjson:</label><br>
         <textarea id="flexjson" name="flexjson"></textarea>
         <button type="button" id="btnClip">Paste from Clipboard</button>
@@ -107,8 +111,7 @@
       },
       {
         'type': 'image',
-        'originalContentUrl': 'https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.15752-9/362246945_962834345025441_4111091948369194005_n.png?_nc_cat=107&cb=99be929b-3346023f&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeFBGKBZGvkn1D6tLPw-yAZ2qlm5ujrzpXiqWbm6OvOleELPLQ-h8gPCliGOX1dLJA2jc7J4wf6kRbnVAdgEuPEi&_nc_ohc=4Vv4PxAmvE0AX9xciRF&_nc_ht=scontent.fbkk5-7.fna&oh=03_AdTuP44GEvbQn21rBTVto6zMbmFOgJs-IIQxKuHLQOZlXA&oe=64E31592',
-        
+        'originalContentUrl': 'https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.15752-9/362246945_962834345025441_4111091948369194005_n.png?_nc_cat=107&cb=99be929b-3346023f&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeFBGKBZGvkn1D6tLPw-yAZ2qlm5ujrzpXiqWbm6OvOleELPLQ-h8gPCliGOX1dLJA2jc7J4wf6kRbnVAdgEuPEi&_nc_ohc=4Vv4PxAmvE0AX9xciRF&_nc_ht=scontent.fbkk5-7.fna&oh=03_AdTuP44GEvbQn21rBTVto6zMbmFOgJs-IIQxKuHLQOZlXA&oe=64E31592'     
       }
     ]
   )
