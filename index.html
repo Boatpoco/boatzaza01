@@ -86,11 +86,11 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
-    aasync function shareMsg() {
+    async function shareMsg() {
   const alttext = document.getElementById("alttext").value;
   const flexjsonInput = document.getElementById("flexjson").value;
   const flexjson = JSON.parse(flexjsonInput);
-  
+
   // ตรวจสอบว่า alttext หรือ flexjson ว่างเปล่าหรือไม่
   if (!alttext.trim() || !flexjsonInput.trim()) {
     alert("alttext หรือ flexjson ไม่สามารถว่างเปล่าได้");
@@ -108,10 +108,6 @@
         'type': 'flex',
         'altText': alttext,
         'contents': flexjson
-      },
-      {
-        'type': 'image',
-        'originalContentUrl': 'https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.15752-9/362246945_962834345025441_4111091948369194005_n.png?_nc_cat=107&cb=99be929b-3346023f&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeFBGKBZGvkn1D6tLPw-yAZ2qlm5ujrzpXiqWbm6OvOleELPLQ-h8gPCliGOX1dLJA2jc7J4wf6kRbnVAdgEuPEi&_nc_ohc=4Vv4PxAmvE0AX9xciRF&_nc_ht=scontent.fbkk5-7.fna&oh=03_AdTuP44GEvbQn21rBTVto6zMbmFOgJs-IIQxKuHLQOZlXA&oe=64E31592'     
       }
     ]
   )
@@ -126,10 +122,7 @@
     console.log("something wrong happen");
   });
 }
-
-
-
-
+    
     function logOut() {
       liff.logout()
       window.location.reload()
