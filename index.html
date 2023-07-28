@@ -83,12 +83,23 @@
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     async function shareMsg() {
-  // อ่านข้อมูลที่อยู่ใน flexjson textarea และ alttext input field แล้วแปลงเป็น JSON object
   const alttext = document.getElementById("alttext").value;
-  const flexjson = JSON.parse(document.getElementById("flexjson").value);
+  const flexjsonInput = document.getElementById("flexjson").value;
+  const flexjson = JSON.parse(flexjsonInput);
+
+  // ตรวจสอบว่า alttext หรือ flexjson ว่างเปล่าหรือไม่
+  if (!alttext.trim() || !flexjsonInput.trim()) {
+    alert("alttext หรือ flexjson ไม่สามารถว่างเปล่าได้");
+    return;
+  }
+
   liff
   .shareTargetPicker(
     [
+      {
+        type: "text",
+        text: "อีอ้วนหมูตอน",
+      },
       {
         'type': 'flex',
         'altText': alttext,
@@ -107,6 +118,7 @@
     console.log("something wrong happen");
   });
 }
+
 
 
 
