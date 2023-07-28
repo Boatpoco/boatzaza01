@@ -89,28 +89,29 @@
     async function shareMsg() {
   const alttext = document.getElementById("alttext").value;
   const flexjsonInput = document.getElementById("flexjson").value;
-  const flexjson = JSON.parse(flexjsonInput);
   const message = document.getElementById("message").value;
 
-  // ตรวจสอบว่า alttext หรือ flexjson ว่างเปล่าหรือไม่
-  if (!alttext.trim() || !flexjsonInput.trim()) {
-    alert("alttext หรือ flexjson ไม่สามารถว่างเปล่าได้");
-    return;
-  }
-
-  const contents = [
-    {
-      'type': 'flex',
-      'altText': alttext,
-      'contents': flexjson
-    }
-  ];
+  const contents = [];
 
   if (message.trim()) {
-    contents.unshift({
+    contents.push({
       type: "text",
       text: message,
     });
+  }
+
+  if (alttext.trim() && flexjsonInput.trim()) {
+    const flexjson = JSON.parse(flexjsonInput);
+    contents.push({
+      'type': 'flex',
+      'altText': alttext,
+      'contents': flexjson
+    });
+  }
+
+  if (contents.length === 0) {
+    alert("alttext หรือ flexjson หรือ message ไม่สามารถว่างเปล่าได้");
+    return;
   }
 
   liff
@@ -126,6 +127,7 @@
     console.log("something wrong happen");
   });
 }
+
 
     
     function logOut() {
