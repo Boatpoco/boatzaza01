@@ -29,7 +29,7 @@
         vertical-align: top;
         text-align: left;
     }
-</style>
+  </style>
 </head>
 <body>
  <h2>Your Information</h2>
@@ -37,13 +37,19 @@
     <form action="#" method="post" name="flexJson">
         <label for="alttext">alttext:</label><br>
         <input type="text" id="alttext" name="alttext"><br>
+        <button type="button" onclick="pasteFromClipboard('alttext')">Paste from Clipboard</button><br>
+
         <label for="message">Message:</label><br>
         <textarea id="message" name="message"></textarea><br>
+        <button type="button" onclick="pasteFromClipboard('message')">Paste from Clipboard</button><br>
+
         <label for="flexjson">flexjson:</label><br>
         <textarea id="flexjson" name="flexjson"></textarea><br>
+        <button type="button" onclick="pasteFromClipboard('flexjson')">Paste from Clipboard</button><br>
+
         <label for="imageUrl">Image URL:</label><br>
         <input type="text" id="imageUrl" name="imageUrl"><br>
-        <button type="button" id="btnClip">Paste from Clipboard</button>
+        <button type="button" onclick="pasteFromClipboard('imageUrl')">Paste from Clipboard</button><br>
     </form>
     
     <div class="info-row">
