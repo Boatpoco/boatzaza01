@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>ควยไรละเย็ดแม่</title>
+  <title>สวัสดีครับ ของโบ็ทเอง</title>
   <link rel="stylesheet" href="css/style.css">
 <style>
     body {
@@ -121,12 +121,7 @@
 
   const contents = [];
 
-  if (message.trim()) {
-    contents.push({
-      type: "text",
-      text: message,
-    });
-  }
+ 
 
   if (alttext.trim() && flexjsonInput.trim()) {
     const flexjson = JSON.parse(flexjsonInput);
@@ -136,14 +131,20 @@
       'contents': flexjson
     });
   }
-
-  if (imageUrl.trim()) {
+      if (imageUrl.trim()) {
     contents.push({
       type: "image",
       originalContentUrl: imageUrl,
       previewImageUrl: imageUrl
     });
   }
+ if (message.trim()) {
+    contents.push({
+      type: "text",
+      text: message,
+    });
+  }
+  
 
   if (contents.length === 0) {
     alert("alttext หรือ flexjson หรือ message หรือ image url ไม่สามารถว่างเปล่าได้");
